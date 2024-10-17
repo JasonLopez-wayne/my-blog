@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jason's Album Reviews</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" href="fav/favicon.png" type="image/x-icon">
+    
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+</head>
+<style>
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: #f0e6e2;
+    color: #3a3a3a;
+}
+
+header {
+    background-color: #181D27;
+    text-align: center;
+    padding: 2px 20px;
+    border-bottom: 1px solid #d3cfcf;
+}
+
+header h1 {
+    color: #f0e6e2;
+    font-size: 4rem;
+    font-family: 'Bebas Neue', sans-serif;
+}
+
+header p {
+    color: #f0e6e2;
+    font-size: 1.5rem;
+    margin-top: 10px;
+}
+
+/* Navi Bar Styling */
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    background-color: #2A2D38;
+}
+
+nav ul li {
+    margin: 0 88px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #f0e6e2;
+    font-size: 1.2rem;
+    padding: 10px 15px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: #f0e6e2;
+    color: #2A2D38;
+    border-radius: 5px;
+}
+
+/* Post styling */
+.post {
+    margin: 20px auto;
+    padding: 10px;
+    max-width: 600px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+}
+
+.post:hover {
+    transform: scale(1.02);
+}
+
+.post img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.post img:hover {
+    transform: scale(1.05);
+}
+
+.post h2 {
+    color: #3a3a3a;
+    margin-top: 10px;
+    font-size: 1.8rem;
+}
+
+.post p {
+    margin: 10px 0;
+}
+
+.footer {
+    text-align: center;
+    padding: 20px;
+    color: #f0e6e2;
+    background-color: #181D27;
+    font-size: 1rem;
+    border-top: 1px solid #d3cfcf;
+    margin-top: 40px;
+}
+
+/* Scroll animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 1s ease forwards;
+    animation-delay: 0.3s;
+}
+
+.fade-in-trigger {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-out;
+}
+
+.fade-in-visible {
+    visibility: visible;
+    opacity: 1;
+}
+
+</style>
+<body>
+<header>
+    <h1>Jason's Album Reviews</h1>
+    <p>Your go-to blog for the best albums to listen in the shower</p>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            </a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<section id="posts">
+    <article class="post fade-in-trigger">
+        <img src="img/image1.jpg" alt="Album Cover">
+        <h2>Orquídeas</h2>
+        <p><strong>Artist:</strong> Kali Uchis</p>
+        <p><strong>Release Date:</strong> January 12th, 2024</p>
+        <p><strong>Review:</strong> If music were a flower, this album would be a tropical orchid: rare and beautiful, with just that little something extra. Kali Uchis doesn't hold anything back in 'Orquídeas', lusciously full of dreamy vocals and hypnotic beats. It's perfect for that moment when, dramatically, you stare out the window at a thunderstorm outside, pretending it's an indie film and you're the star.</p>
+        <p>The album is like a sweet daydream that lingers even after the world snaps back into focus. Recommended listening: in the shower, with extra steam for maximum dramatic effect.</p>
+    </article>
+
+    <article class="post fade-in-trigger">
+        <img src="img/image2.jpg" alt="Album Cover">
+        <h2>Hit me Hard and Soft</h2>
+        <p><strong>Artist:</strong> Billie Eilish</p>
+        <p><strong>Release Date:</strong> May 17th, 2024</p>
+        <p><strong>Review:</strong> Billie comes at you from two directions in this one, as the title suggests. ‘Hit Me Hard and Soft’ is an emotional rollercoaster that somehow manages to be both a gentle whisper and a smack in the face — and we love it for that. Picture yourself staring at the ceiling in the middle of the night, pondering life’s mysteries while the beats echo in your brain.</p>
+        <p>It’s perfect for those late-night musings when you’re feeling introspective, yet slightly dramatic. Crank it up, lay back, and let Billie remind you why feeling *all* the feels is perfectly normal.</p>
+    </article>
+</section>
+
+<footer class="footer">
+    <p>&copy; 2024 Jason's Album Reviews. All rights reserved.</p>
+</footer>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const fadeElements = document.querySelectorAll('.fade-in-trigger');
+    
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('fade-in-visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+    
+    fadeElements.forEach(element => observer.observe(element));
+});
+</script>
+
+</body>
+</html>
